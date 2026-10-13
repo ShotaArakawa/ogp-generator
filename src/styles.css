@@ -1,0 +1,261 @@
+:root {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --primary: #4f46e5;
+  --primary-text: #ffffff;
+  --warn: #b45309;
+  --ok: #047857;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.app {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.header h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.header p,
+.footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer {
+  margin-top: 32px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.preview-pane,
+.editor {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.preview-pane {
+  position: sticky;
+  top: 16px;
+}
+
+@media (max-width: 880px) {
+  .preview-pane {
+    position: static;
+  }
+}
+
+.preview-frame {
+  width: 100%;
+  margin: 0 auto;
+  background: repeating-conic-gradient(#eee 0% 25%, #fff 0% 50%) 50% / 20px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+h2 {
+  font-size: 0.95rem;
+  margin: 20px 0 8px;
+}
+
+.editor h2:first-child {
+  margin-top: 0;
+}
+
+.editor label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.editor input:not([type="checkbox"]):not([type="color"]):not([type="range"]):not([type="file"]),
+.editor textarea,
+.editor select {
+  font: inherit;
+  color: var(--text);
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.editor > select {
+  margin-bottom: 4px;
+}
+
+.editor textarea {
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.color input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2px;
+  background: #fff;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  padding: 8px 14px;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: var(--primary);
+  font-weight: 700;
+}
+
+button.secondary {
+  margin-top: 16px;
+  width: 100%;
+}
+
+button.link {
+  border: none;
+  background: none;
+  color: var(--primary);
+  padding: 0 4px;
+  text-decoration: underline;
+}
+
+.plan {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: var(--warn);
+  margin: 8px 0 0;
+}
+
+.note.ok {
+  color: var(--ok);
+}
+
+.segmented {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.segmented button {
+  flex: 1;
+  border-radius: 0;
+  margin-left: -1px;
+  font-size: 0.85rem;
+}
+
+.segmented button:first-child {
+  border-radius: 8px 0 0 8px;
+  margin-left: 0;
+}
+
+.segmented button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.segmented button.active,
+.template.active {
+  border-color: var(--primary);
+  background: #eef2ff;
+  color: var(--primary);
+  font-weight: 700;
+  position: relative;
+}
+
+.templates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.template {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+.thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.pro {
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #fde68a;
+  color: #92400e;
+}
